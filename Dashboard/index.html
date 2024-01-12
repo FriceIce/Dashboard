@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,700;1,100;1,300;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/style.css">
+  <script src="https://kit.fontawesome.com/8f932c8a25.js" crossorigin="anonymous"></script>
+  <script type="module" src="script/main.js"></script>
+  <title>DashBoard</title>
+</head>
+<body>
+  <header>
+    <div class="time-date-cont">
+      <div class="clock">10:10</div>
+      <div class="date">1 april 2024</div>
+    </div>
+  </header>
+  
+  <main class="dashboard-layout">
+    <h1 id="dashboard-title">Isak Ice Dashboard</h1>
+
+    <div class="cards-layout">
+      <div class="card">
+        <div class="title">
+          <h2>Snabblänkar</h2>
+        </div>
+        <ul class="item-cont">
+        </ul>
+        
+        <div class="add-cont">
+          <div>
+            <img style="width: 19px;" src="svg-icons/add-square-svgrepo-com.svg" alt="">
+            <p>Lägg till länk</p>
+          </div>
+          <form class="card-form" id="add-link-form">
+            <input placeholder="Example - google.com" type="text" name="link-input" id="link-input" class="card-input">
+            <button id="add-link-btn" class="icon-btn"><img src="svg-icons/search-svgrepo-com.svg" alt="search" ></button>
+          </form>
+        </div>
+      </div>
+      <div class="card">
+        <div class="city-cont">
+          <h3>London</h3>
+        </div>
+        <div class="weather-cont">
+          <div class="celcius">
+            <div>
+              <h4>27<img style="width: 30px;" src="svg-icons/celcius-svgrepo-com.svg" alt="Celcius"></h4>
+            </div>
+            <div class="weather-icon">
+              <img style="width: 80px; margin-left: -10px;" src="https://openweathermap.org/img/wn/10d@2x.png" alt="">
+              <p>Light Rain</p>
+            </div>
+          </div>
+          <div class="description-cont">
+            <div class="desc-card"></div>
+            <div class="desc-card"></div>
+          </div>
+        </div>
+
+        <div class="add-cont">
+          <form class="card-form" id="add-wather-btn">
+            <input placeholder="Land / Stad" type="text" name="weather-input" id="weather-input" class="card-input">
+            <button id="add-wather-btn" class="icon-btn">
+              <img src="svg-icons/search-svgrepo-com.svg" alt="search">
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="card"></div>
+      <div class="card"></div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-layout">
+      <i class="fa-solid fa-rotate-right"></i>
+      <p>Slumpa ny backgrund</p>
+    </div>
+  </footer>
+</body>
+</html>

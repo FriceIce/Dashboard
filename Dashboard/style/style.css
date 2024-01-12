@@ -1,3 +1,6 @@
+@import url('add-to-card.css');
+@import url('weather.css');
+
 *,::before, ::after{
   margin: 0;
   padding: 0;
@@ -16,6 +19,7 @@ body{
   width: 100vw;
   min-width: 375px;
   height: auto;
+  min-height: 100vh;
 
   display: grid;
   place-content: center;
@@ -87,40 +91,13 @@ header{
   height: 350px;
 }
 
-.card > .title{
+.card > .title h2{
+  font-size: 1.8rem;
   font-style: italic;
   font-weight: 500;
   display: flex;
   align-items: end;
   height: 50px;
-}
-
-.item-cont{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  width: 100%;
-}
-
-.item{
-  background-color: #d2d7d693;
-  border-radius: 10px;
-  height: 50px;
-  width: 90%;
-  display: flex;
-  align-items: center;
-}
-
-.add-link{
-  background-color:  #d2d7d669;
-  color: white;
-  border-radius: 10px;
-  padding: 8px 15px;
-  width: fit-content;
-  display: flex;
-  gap: 0.5rem;
 }
 
 /* .............Footer...................... */
