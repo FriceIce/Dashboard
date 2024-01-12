@@ -1,21 +1,28 @@
 export const allURL = JSON.parse(localStorage.getItem('URL')) || []; 
-// localStorage.removeItem('URL')
+localStorage.removeItem('URL')
 
 const itemContEl = document.querySelector('.item-cont');
 export function addLink(url){
   let text = url.charAt(0).toUpperCase() + url.slice(1); 
   
+  //Ersätter Https:// med en tom sträng
+  if(text.includes('Https://')){
+    text = text.replace('Https://', '')
+    console.log(text)
+  }
+
+  //Icke valid input. 
   if(!text.includes('.com')) 
     if (!text.includes('.se'))
       return
 
   const icon = `https://www.google.com/s2/favicons?sz=32&domain_url=${text}&size=256`
-  
+
   if(itemContEl.childElementCount < 4) 
     itemContEl.innerHTML += `
     <li class="item">
       <img src="${icon}" style="width: 24px;">
-      <a href="${text}"><p>${text}</p></a>
+      <a href="http://${text}"><p>${text}</p></a>
     </li>`
 
   if(!allURL.includes(text)){

@@ -1,10 +1,10 @@
 import axios, { all } from "axios";
 import { addLink, allURL, renderIcons } from "./modules/add-link";
-import { getWeather } from "./modules/add-weather.js";
+import { getWeather} from "./modules/add-weather.js";
 
 // Render all Icon
 renderIcons(allURL)
-
+getWeather()
 // Add New Icon
 const addUrlEl = document.querySelector('#add-link-form'); 
 const inputUrl = addUrlEl.querySelector('input')
@@ -17,16 +17,24 @@ addUrlEl.addEventListener('submit', (el) => {
 })
 
 //Add weather forecast
-const addWeatherEl = document.querySelector('#add-wather-btn'); 
-const inputWeather = document.querySelector('#weather-input'); 
-
-addWeatherEl.addEventListener('submit', (el) => {
-  el.preventDefault(); 
-
-  const city = inputWeather.value;
-  inputWeather.value = ''; 
+const cardEl = document.querySelector('[data-weather-card]'); 
+cardEl.addEventListener('click', (el) => {
+  const addWeatherEl = document.querySelector('#add-wather-btn');
+  const searchIcon = addWeatherEl.querySelector('img');
+  const inputWeather = document.querySelector('#weather-input'); 
   
-  if (city)
-  console.log(city)
-  getWeather(city);
-});
+  el.preventDefault()
+  if(el.target === addWeatherEl || el.target === searchIcon){
+    const city = inputWeather.value;
+    inputWeather.value = ''; 
+    if (!city) {
+      inputWeather.placeholder = 'The inputfield is empty..'
+      setTimeout(() => {
+        inputWeather.placeholder = 'Land / Stad'
+      },5000)
+    return
+    } 
+    getWeather(city);
+  }
+})
+
