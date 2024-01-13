@@ -17,6 +17,7 @@ export async function getWeather(city='Stockholm'){
     if(response.status !== 200)
       throw new Error(response.status);  
     
+    renderSidebarWeather(data)
     renderWeatherData(data); 
   } catch (error) {
     
@@ -35,7 +36,7 @@ export async function getWeather(city='Stockholm'){
 }
 
 function renderWeatherData(data){
-  const cardEl = document.querySelector('[data-weather-card]'); 
+  const cardEl = document.querySelector('[data-weather-cont]'); 
   console.log(cardEl)
   const {
     name,
@@ -69,15 +70,35 @@ function renderWeatherData(data){
         </div>
       </div>
     </div>
-    <div class="add-cont">
-      <form class="card-form" id="add-weather-form">
-        <input placeholder="Land / Stad" type="text" name="weather-input" id="weather-input" class="card-input">
-        <button id="add-wather-btn" class="icon-btn">
-          <img src="svg-icons/search-svgrepo-com.svg" alt="search">
-        </button>
-      </form>
-    </div>
+  
     `
   cardEl.innerHTML = html;
   console.log(weatherIcon)
+}
+
+export function renderSidebarWeather(data){
+  const sideBar = document.querySelector('.forecast-sidebar'); 
+  console.log(data)
+  const {
+    name,
+    main: {temp}, 
+    weather: [{description}],
+    weather: [{icon: weatherIcon}]
+  } = data; 
+
+
+  const html = 
+  ` <div class="weather-mini-cont">
+      <div class="forecast-icon"><img src="https://openweathermap.org/img/wn/${weatherIcon}.png"></div>
+      <div class="weather-info">
+        <div>
+          <p>${name}</p>
+          <div>
+            <p>${Math.round(temp)}<img style="width: 10px;" src="svg-icons/celcius-svgrepo-com.svg" alt="Celcius"> ${description}</p>
+          </div>
+        </div>
+      </div>
+    </div>`
+
+  sideBar.innerHTML += html; 
 }

@@ -27,6 +27,8 @@
   width: fit-content;
   display: flex;
   gap: 0.5rem;
+
+  justify-self: end;
 }
 
 .add-cont div{

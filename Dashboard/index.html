@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,700;1,100;1,300;1,400;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style/style.css">
-  <script src="https://kit.fontawesome.com/8f932c8a25.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   <script type="module" src="script/main.js"></script>
   <title>DashBoard</title>
 </head>
@@ -41,8 +40,25 @@
           </form>
         </div>
       </div>
-      <div class="card" data-weather-card>
-        
+      <div class="card" data-forecast-cont>
+        <box-icon name='menu-alt-left'></box-icon>
+        <aside class="forecast-sidebar">
+          <div class="forecast-title">
+            <box-icon type='solid' name='location-plus'></box-icon>
+            <h4>Senaste platser</h4>
+          </div> 
+        </aside>
+
+        <div data-weather-cont >
+        </div>
+        <div class="add-cont">
+          <form class="card-form" id="add-weather-form">
+            <input placeholder="Land / Stad" type="text" name="weather-input" id="weather-input" class="card-input">
+            <button id="add-wather-btn" class="icon-btn">
+              <img src="svg-icons/search-svgrepo-com.svg" alt="search">
+            </button>
+          </form>
+        </div>
       </div>
       <div class="card"></div>
       <div class="card"></div>

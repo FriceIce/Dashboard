@@ -89,6 +89,7 @@ header{
   background-color: #8b908fad;
   border-radius: 10px;
   height: 350px;
+  position: relative;
 }
 
 .card > .title h2{
