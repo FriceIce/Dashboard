@@ -1,12 +1,23 @@
 import axios, { all } from "axios";
-import { addLink, allURL, renderIcons } from "./modules/add-link";
-import { getWeather} from "./modules/add-weather.js";
+import { addLink, allURL, renderIcons, saveURL } from "./modules/add-url.js";
+import { getWeather, renderWeatherData} from "./modules/add-weather.js";
+import dateAndTime from "./modules/date-time.js";
+import userLocation from "./modules/user-location.js";
+
+//USER LOCATION
+userLocation(renderWeatherData, getWeather)
+
+//DATE AND TIME
+dateAndTime();
+setInterval(() => {
+  dateAndTime();
+}, 1000)
 
 // RENDER ALL ICONS
 renderIcons(allURL)
-getWeather()
 
-//ADD NEW LINKS
+
+//ADD NEW URL
 const addUrlEl = document.querySelector('#add-link-form'); 
 const inputUrl = addUrlEl.querySelector('input')
 addUrlEl.addEventListener('submit', (el) => {
@@ -15,6 +26,21 @@ addUrlEl.addEventListener('submit', (el) => {
   inputUrl.value = '';
   console.log(url)
   addLink(url)
+})
+
+//REMOVE URL
+const addURLCard = document.querySelector('[data-url]'); 
+addURLCard.addEventListener('click', (el) => {
+  const removeBtnsEl = document.querySelectorAll('.removeURLBtn'); 
+  const target = el.target;
+
+  removeBtnsEl.forEach((btn, index) => {
+    if(target === btn){
+      allURL.splice(index, 1); 
+      btn.closest('.item').remove(); 
+      saveURL(); // LocalStorage.
+    }
+  })
 })
 
 //ADD WEATHER FORECAST

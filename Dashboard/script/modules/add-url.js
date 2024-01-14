@@ -3,11 +3,13 @@ export const allURL = JSON.parse(localStorage.getItem('URL')) || [];
 
 const itemContEl = document.querySelector('.item-cont');
 export function addLink(url){
-  let text = url.charAt(0).toUpperCase() + url.slice(1); 
+  let text = url.charAt(0).toUpperCase() + url.slice(1);
+    
   
   //Ersätter Https:// med en tom sträng
   if(text.includes('Https://')){
     text = text.replace('Https://', '')
+    text = text.charAt(0).toUpperCase() + text.slice(1);
     console.log(text)
   }
 
@@ -23,11 +25,12 @@ export function addLink(url){
     <li class="item">
       <img src="${icon}" style="width: 24px;">
       <a href="http://${text}"><p>${text}</p></a>
+      <img class="removeURLBtn" src="svg-icons/remove-ellipse-svgrepo-com.svg">
     </li>`
 
   if(!allURL.includes(text)){
     allURL.push(text);
-    localStorage.setItem('URL', JSON.stringify(allURL)); 
+    saveURL(); 
   }
 }
 
@@ -36,4 +39,8 @@ export function renderIcons(allURL){
     allURL.forEach(url => {
       addLink(url);
     });
+}
+
+export function saveURL(){
+  return localStorage.setItem('URL', JSON.stringify(allURL));
 }

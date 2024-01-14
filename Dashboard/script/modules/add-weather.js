@@ -1,27 +1,26 @@
 // const apiKey = '691bd0077813775638e00b909e6b2157';
 // const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
-export async function getWeather(city='Stockholm'){
+export async function getWeather(city='Sverige'){
   console.log('Entering getWeather() function..')
-  const apiKeyCurrent = '691bd0077813775638e00b909e6b2157';
+  const apiKey = '691bd0077813775638e00b909e6b2157';
   // const apiKeyFourDays = '1385a7fd85515a5e3e931c804079457e' Kolla upp denna senare. 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKeyCurrent}&units=metric`;
-
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  
   try {
+    console.log('fetching data...')
     const response = await axios(url)
     const data = await response.data; 
-    console.log(city, 'data:', response.data)
-
-    if(response.status !== 200)
-      throw new Error(response.status);  
+    console.log(city, 'data:', response.status)
     
     renderSidebarWeather(data)
     renderWeatherData(data); 
   } catch (error) {
-    
-    switch (error) {
+    console.log(error)
+    const {response: {status}} = error
+    switch (status) {
       case 400:
         console.log('Status code', error)
         break;
@@ -29,13 +28,19 @@ export async function getWeather(city='Stockholm'){
         console.log('Status code', error)
         break;
       case 404: 
+      const cardEl = document.querySelector('[data-weather-cont]'); 
+      const img = `<img style="height 60px; width: 60px; margin: auto 0px;" src="svg-icons/country-direction-location-map-navigation-pin-svgrepo-com.svg">`
+      cardEl.innerHTML = img + '404 City Not Found'
       console.log('Status code', error)
         break;
     }
+    return
   }
 }
 
-function renderWeatherData(data){
+
+
+export function renderWeatherData(data){
   const cardEl = document.querySelector('[data-weather-cont]'); 
   console.log(cardEl)
   const {
@@ -49,7 +54,7 @@ function renderWeatherData(data){
 
   const html = 
     `<div class="city-cont">
-      <h2 style="font-size:1.5rem; font-style: italic; font-weight: 500;">Dagens Väder</h2>
+      <h2 style="font-size:1.5rem; font-style: italic; font-weight: 500;">Dagens väder</h2>
     </div>
     <div class="weather-cont">
       <div class="celcius">
@@ -65,7 +70,7 @@ function renderWeatherData(data){
       <div class="description-cont">
         <div class="desc-card">
           <img src="svg-icons/humidity-svgrepo-com.svg">
-          <p>Humidity: ${humidity}</p>
+          <p>Humidity: ${humidity}%</p>
         </div>
         <div class="desc-card">
           <img src="svg-icons/wind-svgrepo-com.svg">
