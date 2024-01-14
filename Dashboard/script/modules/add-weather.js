@@ -49,23 +49,26 @@ function renderWeatherData(data){
 
   const html = 
     `<div class="city-cont">
-      <h3>${name}</h3>
+      <h2 style="font-size:1.5rem; font-style: italic; font-weight: 500;">Dagens Väder</h2>
     </div>
     <div class="weather-cont">
       <div class="celcius">
-        <div>
+        <div style="display: flex; align-items: center;">
           <h4>${Math.round(temp)}<img style="width: 30px;" src="svg-icons/celcius-svgrepo-com.svg" alt="Celcius"></h4>
-        </div>
-        <div class="weather-icon">
           <img style="width: 80px;" src="https://openweathermap.org/img/wn/${weatherIcon}.png" alt="">
-          <p>${description}</p>
+          </div>
+          <div class="weather-icon">
+          <box-icon type='solid' name='location-plus' style="width
+          15px; height: 15px;"></box-icon><h3 style="font-weight: 500;">${name}</h3>
         </div>
       </div>
       <div class="description-cont">
         <div class="desc-card">
+          <img src="svg-icons/humidity-svgrepo-com.svg">
           <p>Humidity: ${humidity}</p>
         </div>
         <div class="desc-card">
+          <img src="svg-icons/wind-svgrepo-com.svg">
           <p>Wind: ${Math.round(speed)} m/s</p>
         </div>
       </div>

@@ -4,6 +4,7 @@
 *,::before, ::after{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -93,7 +94,7 @@ header{
 }
 
 .card > .title h2{
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-style: italic;
   font-weight: 500;
   display: flex;
