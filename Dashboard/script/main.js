@@ -3,9 +3,11 @@ import { addLink, allURL, renderIcons, saveURL } from "./modules/add-url.js";
 import { getWeather, renderSidebarWeather, renderWeatherData, sidebarLocations} from "./modules/add-weather.js";
 import dateAndTime from "./modules/date-time.js";
 import userLocation from "./modules/user-location.js";
+import globe from "./modules/mapbox.js";
 
-//USER LOCATION
+//------------------USER LOCATION-----------------------
 userLocation(renderWeatherData, getWeather)
+// -----------------------------------------------------
 
 //DATE AND TIME
 dateAndTime();
@@ -15,7 +17,6 @@ setInterval(() => {
 
 // RENDER ALL ICONS
 renderIcons(allURL)
-
 
 //ADD NEW URL
 const addUrlEl = document.querySelector('#add-link-form'); 
@@ -50,8 +51,8 @@ addURLCard.addEventListener('click', (el) => {
 |                                                                             |
 -------------------------------------------------------------------------------
 */
-const weatherFormEl = document.querySelector('#add-weather-form');
-const inputWeather = document.querySelector('#weather-input'); 
+const weatherFormEl = document.querySelector('#add-location-form');
+const inputWeather = document.querySelector('#location-input'); 
 weatherFormEl.addEventListener('submit', (el) => {
   el.preventDefault(); 
 
@@ -100,3 +101,6 @@ forecastCont.addEventListener('click', (el) => {
 if(sidebarLocations) {
   sidebarLocations.forEach(data => renderSidebarWeather(data))
 }
+
+//----------------------------------------MAPS------------------------------------------
+globe();

@@ -12,7 +12,6 @@ export async function getWeather(location='Sverige'){
     const data = await response.data; 
     console.log(location, 'data:', response.status)
   
-    renderSidebarWeather(data)
     renderWeatherData(data); 
 
     //Kollar ifall platsen redan finns i listan.
@@ -24,6 +23,7 @@ export async function getWeather(location='Sverige'){
     });
     
     if(!matchingLocation){
+      renderSidebarWeather(data)
       sidebarLocations.push(data);
       localStorage.setItem('sidebarLocations', JSON.stringify(sidebarLocations));
     }

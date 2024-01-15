@@ -1,4 +1,5 @@
 import axios from "axios";
+import globe from "./mapbox";
 export default function userLocation(weatherFn, onError){
   
   // ON SUCESS
@@ -37,10 +38,14 @@ export default function userLocation(weatherFn, onError){
       }
     }
     console.log(position.coords);
+
+    // --------Globe----------
+    globe([position.coords.longitude, position.coords.latitude], 12)
   }
 
   // ON ERROR, User denies location.
   const error = (err) => {
+    globe([17.34, 60.12], 3.5)
     const userLocation = document.querySelector('#user-location')
     userLocation.innerText = 'Din plats: Okänd'
     console.log(err)

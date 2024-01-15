@@ -14,7 +14,7 @@ body{
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  overflow-y: auto;
+  overflow-y: scroll;
   overflow-x: clip;
   
   width: 100vw;
@@ -32,6 +32,9 @@ body{
   'footer';
 }
 
+body::-webkit-scrollbar{
+  display: none;
+}
 /* ................Time and Date.............. */
 header{
   grid-area: header;
