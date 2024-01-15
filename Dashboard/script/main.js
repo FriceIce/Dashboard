@@ -1,6 +1,6 @@
 import axios, { all } from "axios";
 import { addLink, allURL, renderIcons, saveURL } from "./modules/add-url.js";
-import { getWeather, renderWeatherData} from "./modules/add-weather.js";
+import { getWeather, renderSidebarWeather, renderWeatherData, sidebarLocations} from "./modules/add-weather.js";
 import dateAndTime from "./modules/date-time.js";
 import userLocation from "./modules/user-location.js";
 
@@ -43,7 +43,13 @@ addURLCard.addEventListener('click', (el) => {
   })
 })
 
-//ADD WEATHER FORECAST
+/*
+------------------------------------------------------------------------------- 
+|                                                                             |
+|                          WEATHER EVENTS                                     |
+|                                                                             |
+-------------------------------------------------------------------------------
+*/
 const weatherFormEl = document.querySelector('#add-weather-form');
 const inputWeather = document.querySelector('#weather-input'); 
 weatherFormEl.addEventListener('submit', (el) => {
@@ -69,10 +75,28 @@ const sideBarMenu = document.querySelector("[name='menu-alt-left']")
 
 forecastCont.addEventListener('click', (el) => {
   const target = el.target;
+  const weatherLocation = document.querySelector('.sidebar-location'); 
+  const userLocationEL = document.querySelector('#user-location')
   if(target === sideBarMenu){
-    console.log('inne')
-    sideBar.dataset.sidebar='open'
-  } else {
-    sideBar.dataset.sidebar='null'
+    // console.log('inne')
+    sideBar.dataset.sidebar='open';
+    return 
+
+  } else if(target === userLocationEL){
+    console.log('true')
+    userLocation(renderWeatherData, getWeather)
+
+  }else if(weatherLocation !== null && target.tagName === 'P' ){
+    const location = target.textContent; 
+    sidebarLocations.forEach((data) => {
+      if(data.name === location)
+        renderWeatherData(data)
+    })
   }
+  sideBar.dataset.sidebar='close'
 })
+
+// console.log(sidebarLocations)
+if(sidebarLocations) {
+  sidebarLocations.forEach(data => renderSidebarWeather(data))
+}

@@ -1,22 +1,33 @@
-// const apiKey = '691bd0077813775638e00b909e6b2157';
-// const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
 import axios, { AxiosError } from "axios";
 
-export async function getWeather(city='Sverige'){
+export async function getWeather(location='Sverige'){
   console.log('Entering getWeather() function..')
   const apiKey = '691bd0077813775638e00b909e6b2157';
   // const apiKeyFourDays = '1385a7fd85515a5e3e931c804079457e' Kolla upp denna senare. 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`;
   
   try {
     console.log('fetching data...')
     const response = await axios(url)
     const data = await response.data; 
-    console.log(city, 'data:', response.status)
-    
+    console.log(location, 'data:', response.status)
+  
     renderSidebarWeather(data)
     renderWeatherData(data); 
+
+    //Kollar ifall platsen redan finns i listan.
+    let matchingLocation = false; 
+    sidebarLocations.forEach(location => {
+      if(data.name === location.name){
+        matchingLocation = true; 
+      }
+    });
+    
+    if(!matchingLocation){
+      sidebarLocations.push(data);
+      localStorage.setItem('sidebarLocations', JSON.stringify(sidebarLocations));
+    }
+
   } catch (error) {
     console.log(error)
     const {response: {status}} = error
@@ -29,16 +40,14 @@ export async function getWeather(city='Sverige'){
         break;
       case 404: 
       const cardEl = document.querySelector('[data-weather-cont]'); 
-      const img = `<img style="height 60px; width: 60px; margin: auto 0px;" src="svg-icons/country-direction-location-map-navigation-pin-svgrepo-com.svg">`
-      cardEl.innerHTML = img + '404 City Not Found'
+      const img = `<img style="height 60px; width: 60px; margin-top: 6rem" src="svg-icons/country-direction-location-map-navigation-pin-svgrepo-com.svg">`
+      cardEl.innerHTML = img + '<p style="margin-bottom: 2rem;">404 City Not Found</p>'
       console.log('Status code', error)
         break;
     }
     return
   }
 }
-
-
 
 export function renderWeatherData(data){
   const cardEl = document.querySelector('[data-weather-cont]'); 
@@ -59,8 +68,8 @@ export function renderWeatherData(data){
     <div class="weather-cont">
       <div class="celcius">
         <div style="display: flex; align-items: center;">
-          <h4>${Math.round(temp)}<img style="width: 30px;" src="svg-icons/celcius-svgrepo-com.svg" alt="Celcius"></h4>
-          <img style="width: 80px;" src="https://openweathermap.org/img/wn/${weatherIcon}.png" alt="">
+          <h4>${Math.round(temp)}&#176</h4>
+          <img style="width: 80px; margin-left: -10px;" src="https://openweathermap.org/img/wn/${weatherIcon}.png" alt="">
           </div>
           <div class="weather-icon">
           <box-icon type='solid' name='location-plus' style="width
@@ -78,15 +87,15 @@ export function renderWeatherData(data){
         </div>
       </div>
     </div>
-  
     `
   cardEl.innerHTML = html;
-  console.log(weatherIcon)
+  // console.log(sidebarLocations)
 }
 
+export const sidebarLocations = JSON.parse(localStorage.getItem('sidebarLocations')) || []; 
+// localStorage.removeItem('sidebarLocations')
 export function renderSidebarWeather(data){
   const sideBar = document.querySelector('.forecast-sidebar'); 
-  console.log(data)
   const {
     name,
     main: {temp}, 
@@ -94,15 +103,14 @@ export function renderSidebarWeather(data){
     weather: [{icon: weatherIcon}]
   } = data; 
 
-
   const html = 
   ` <div class="weather-mini-cont">
       <div class="forecast-icon"><img src="https://openweathermap.org/img/wn/${weatherIcon}.png"></div>
       <div class="weather-info">
         <div>
-          <p>${name}</p>
+          <p class="sidebar-location">${name}</p>
           <div>
-            <p>${Math.round(temp)}<img style="width: 10px;" src="svg-icons/celcius-svgrepo-com.svg" alt="Celcius"> ${description}</p>
+            <p>${Math.round(temp)}&#176 ${description}</p>
           </div>
         </div>
       </div>

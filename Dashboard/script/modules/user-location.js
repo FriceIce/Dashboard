@@ -16,6 +16,8 @@ export default function userLocation(weatherFn, onError){
         throw new Error(response.status);  
       
       weatherFn(data); 
+      const userLocation = document.querySelector('#user-location')
+      userLocation.innerText = `Din plats: ${data.name}`;
     } catch (error) {
       console.log(error)
       const {response: {status}} = error
@@ -34,14 +36,15 @@ export default function userLocation(weatherFn, onError){
           break;
       }
     }
-
     console.log(position.coords);
   }
 
-  // ON ERROR
+  // ON ERROR, User denies location.
   const error = (err) => {
+    const userLocation = document.querySelector('#user-location')
+    userLocation.innerText = 'Din plats: Okänd'
     console.log(err)
-    onError()
+    onError() //Get default weather data ---> Sweden.
   }
   
   //USER LOCATION
