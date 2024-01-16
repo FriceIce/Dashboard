@@ -51,7 +51,7 @@ export async function getWeather(location='Sverige'){
 
 export function renderWeatherData(data){
   const cardEl = document.querySelector('[data-weather-cont]'); 
-  console.log(cardEl)
+  // console.log(cardEl)
   const {
     name,
     main: {temp}, 

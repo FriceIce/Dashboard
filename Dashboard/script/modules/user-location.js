@@ -11,7 +11,7 @@ export default function userLocation(weatherFn, onError){
     try {
       const response = await axios(URL)
       const data = await response.data; 
-      console.log('Fetch successful, data:', response)
+      // console.log('Fetch successful, data:', response)
 
       if(response.status !== 200)
         throw new Error(response.status);  
@@ -40,12 +40,12 @@ export default function userLocation(weatherFn, onError){
     console.log(position.coords);
 
     // --------Globe----------
-    globe([position.coords.longitude, position.coords.latitude], 12)
+    globe([position.coords.longitude, position.coords.latitude], 12) //Globe([...coords], zoom)
   }
 
   // ON ERROR, User denies location.
   const error = (err) => {
-    globe([17.34, 60.12], 3.5)
+    globe([17.34, 60.12], 3.5) //Globe([...coords], zoom)
     const userLocation = document.querySelector('#user-location')
     userLocation.innerText = 'Din plats: Okänd'
     console.log(err)

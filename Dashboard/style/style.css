@@ -1,5 +1,6 @@
 @import url('add-to-card.css');
 @import url('weather.css');
+@import url('New-York-Times.css');
 
 *,::before, ::after{
   margin: 0;
@@ -79,9 +80,9 @@ header{
 .cards-layout{
   display: grid;
   place-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 250px));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 300px));
   gap: 0.5rem;
-  width: 90%;
+  width: 100%;
   /* border: 1px solid red; */
 }
 

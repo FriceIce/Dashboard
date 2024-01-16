@@ -4,10 +4,13 @@ import { getWeather, renderSidebarWeather, renderWeatherData, sidebarLocations} 
 import dateAndTime from "./modules/date-time.js";
 import userLocation from "./modules/user-location.js";
 import globe from "./modules/mapbox.js";
+import newYorkTimes from "./modules/new-york-times.js";
 
 //------------------USER LOCATION-----------------------
 userLocation(renderWeatherData, getWeather)
 // -----------------------------------------------------
+
+newYorkTimes()
 
 //DATE AND TIME
 dateAndTime();

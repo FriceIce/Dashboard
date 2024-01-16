@@ -118,7 +118,7 @@
 
 [data-sidebar="open"]{
   opacity: 1;
-  width: 245px;
+  width: 95%;
 }
 
 .forecast-title{
@@ -150,6 +150,8 @@
 }
 
 .weather-mini-cont{
+  display: flex;
+  gap: 1rem;
   flex: none;
 }
 
@@ -163,4 +165,8 @@
 
 .sidebar-location, #user-location{
   cursor: pointer;
+}
+
+[data-forecast-cont] > .add-cont{
+  margin-top: 2px;
 }

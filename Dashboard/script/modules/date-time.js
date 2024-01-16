@@ -6,7 +6,6 @@ export default function dateAndTime(){
   //Time
   const hour = (dateTime.getHours() < 10) ? '0' + dateTime.getHours() : dateTime.getHours();
   const minutes = (dateTime.getMinutes() < 10) ? '0' + dateTime.getMinutes() : dateTime.getMinutes();
-  const seconds = dateTime.getSeconds();
   //Date
   const date = dateTime.toLocaleDateString();
   //Show time
