@@ -3,9 +3,9 @@ import axios from "axios";
 export default async function newYorkTimesBestsellers(){
   const APIkey = 'WjjAAwj83Q52TwwWqcRYNwxx2BU5uJk6'
   const URL = `https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=${APIkey}`
-  const response = await axios(URL)
-
+  
   try {
+    // const response = await axios(URL)
     const data = await response.data.results; 
     renderTheNewYorksHTML(data);
     console.log(data)

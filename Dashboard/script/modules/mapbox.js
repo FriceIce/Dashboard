@@ -15,7 +15,7 @@ export default function globe(position, zoom){
   const directions = new MapboxDirections({
     accessToken: 'pk.eyJ1IjoiZnJpY2VpY2UiLCJhIjoiY2xyZXl4eW1rMGN4czJqbzB3OHkwcXBpcCJ9.noDS3FIuqbswTiHqeVIzdQ',
     unit: 'metric',
-    profile: 'mapbox/cycling'
+    profile: 'mapbox/driving'
   });
 
   map.addControl(directions, 'top-left');

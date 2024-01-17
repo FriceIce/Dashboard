@@ -110,12 +110,16 @@ forecastCont.addEventListener('click', (el) => {
     
   }else if(weatherLocation !== null && target.tagName === 'P' ){
     const location = target.textContent; 
-    sidebarLocations.forEach((data) => {
-      if(data.name === location)
-      renderWeatherData(data)
-  })
-}
-sideBar.dataset.sidebar='close'
+    sidebarLocations.forEach((data, index) => {
+      if(data.name === location){
+        getWeather(data.name)
+        const sidebarCont = document.querySelectorAll('.weather-mini-cont'); 
+        sidebarCont[index].remove(); 
+        sidebarLocations.splice(index, 1); 
+      }    
+    })
+  }
+  sideBar.dataset.sidebar='close'
 })
 
 // console.log(sidebarLocations)

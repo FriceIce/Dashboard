@@ -80,7 +80,7 @@ header{
 .cards-layout{
   display: grid;
   place-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 300px));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
   gap: 0.5rem;
   width: 100%;
   /* border: 1px solid red; */

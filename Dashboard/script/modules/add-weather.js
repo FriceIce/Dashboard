@@ -72,8 +72,7 @@ export function renderWeatherData(data){
           <img style="width: 80px; margin-left: -10px;" src="https://openweathermap.org/img/wn/${weatherIcon}.png" alt="">
           </div>
           <div class="weather-icon">
-          <box-icon type='solid' name='location-plus' style="width
-          15px; height: 15px;"></box-icon><h3 style="font-weight: 500;">${name}</h3>
+          <box-icon type='solid' name='location-plus' style="width: 15px; height: 15px;"></box-icon><h3 style="font-weight: 500;">${name}</h3>
         </div>
       </div>
       <div class="description-cont">

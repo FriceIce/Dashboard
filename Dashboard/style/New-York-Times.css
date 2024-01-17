@@ -83,11 +83,11 @@
   
   display: grid;
   gap: 5px;
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(255, 197, 72);
   border-radius: 5px;
   border: none;
   padding: 10px;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.358);
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.463);
   opacity: 0;
   pointer-events: none;
 }
@@ -98,7 +98,7 @@
   left: 10px;
   height: 50px;
   width: 50px;
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(255, 197, 72);
   transform: rotate(45deg);
   z-index: -1;
 }
