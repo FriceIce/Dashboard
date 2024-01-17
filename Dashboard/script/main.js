@@ -4,13 +4,31 @@ import { getWeather, renderSidebarWeather, renderWeatherData, sidebarLocations} 
 import dateAndTime from "./modules/date-time.js";
 import userLocation from "./modules/user-location.js";
 import globe from "./modules/mapbox.js";
-import newYorkTimes from "./modules/new-york-times.js";
+import newYorkTimesBestsellers from "./modules/new-york-times.js";
 
 //------------------USER LOCATION-----------------------
 userLocation(renderWeatherData, getWeather)
 // -----------------------------------------------------
 
-newYorkTimes()
+// ---------------------------------------The New York Times------------------------------
+newYorkTimesBestsellers()
+const allBooksEl = document.querySelector('.all-books'); 
+allBooksEl.addEventListener('click', (el) => {
+  const buyBtns = document.querySelectorAll('.buy-book-btn');
+  const purchaseCont = document.querySelectorAll('.purchase-cont')
+  const target = el.target; 
+  buyBtns.forEach((btn, index) => {
+   if(btn === target){
+    if(purchaseCont[index].dataset.purchaseCont === 'open'){
+      purchaseCont[index].dataset.purchaseCont = 'close'; 
+      return
+    }
+    purchaseCont[index].dataset.purchaseCont = 'open'; 
+   } else {
+    purchaseCont[index].dataset.purchaseCont = 'close'; 
+   }
+  })
+});
 
 //DATE AND TIME
 dateAndTime();
@@ -37,7 +55,7 @@ const addURLCard = document.querySelector('[data-url]');
 addURLCard.addEventListener('click', (el) => {
   const removeBtnsEl = document.querySelectorAll('.removeURLBtn'); 
   const target = el.target;
-
+  
   removeBtnsEl.forEach((btn, index) => {
     if(target === btn){
       allURL.splice(index, 1); 
@@ -58,7 +76,7 @@ const weatherFormEl = document.querySelector('#add-location-form');
 const inputWeather = document.querySelector('#location-input'); 
 weatherFormEl.addEventListener('submit', (el) => {
   el.preventDefault(); 
-
+  
   const city = inputWeather.value; 
   inputWeather.value = ''
   if(!city){
@@ -85,19 +103,19 @@ forecastCont.addEventListener('click', (el) => {
     // console.log('inne')
     sideBar.dataset.sidebar='open';
     return 
-
+    
   } else if(target === userLocationEL){
     console.log('true')
     userLocation(renderWeatherData, getWeather)
-
+    
   }else if(weatherLocation !== null && target.tagName === 'P' ){
     const location = target.textContent; 
     sidebarLocations.forEach((data) => {
       if(data.name === location)
-        renderWeatherData(data)
-    })
-  }
-  sideBar.dataset.sidebar='close'
+      renderWeatherData(data)
+  })
+}
+sideBar.dataset.sidebar='close'
 })
 
 // console.log(sidebarLocations)
@@ -107,3 +125,7 @@ if(sidebarLocations) {
 
 //----------------------------------------MAPS------------------------------------------
 globe();
+
+
+
+
