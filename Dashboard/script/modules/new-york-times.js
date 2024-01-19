@@ -25,7 +25,7 @@ function renderTheNewYorksHTML(data){
         <img src="${value.book_image}" alt="book image">
       </div>
       <div class="article-info">
-        <ul class="purchase-cont">
+        <ul class="purchase-cont" data-id="${value.rank}">
           <a href="${value.buy_links[0].url}" target="_blank"><li>${value.buy_links[0].name}</li></a>
           <a href="${value.buy_links[1].url}" target="_blank"><li>${value.buy_links[1].name}</li></a>
           <a href="${value.buy_links[2].url}" target="_blank"><li>${value.buy_links[2].name}</li></a>
