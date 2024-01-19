@@ -10,7 +10,7 @@ export async function getWeather(location='Sverige'){
     console.log('fetching data...')
     const response = await axios(url)
     const data = await response.data; 
-    console.log(location, 'data:', response.status)
+    console.log(location, 'data:', data)
   
     renderWeatherData(data); 
 
@@ -29,6 +29,7 @@ export async function getWeather(location='Sverige'){
     }
 
   } catch (error) {
+    const cardEl = document.querySelector('[data-weather-cont]'); 
     console.log(error)
     const {response: {status}} = error
     switch (status) {
@@ -39,11 +40,13 @@ export async function getWeather(location='Sverige'){
         console.log('Status code', error)
         break;
       case 404: 
-      const cardEl = document.querySelector('[data-weather-cont]'); 
       const img = `<img style="height 60px; width: 60px; margin-top: 6rem" src="svg-icons/country-direction-location-map-navigation-pin-svgrepo-com.svg">`
       cardEl.innerHTML = img + '<p style="margin-bottom: 2rem;">404 City Not Found</p>'
       console.log('Status code', error)
         break;
+      default: 
+      cardEl.innerHTML = '<p style="padding: 10px; color: red; font-style: italic; font-weight: 600;">Oj! Ett fel har inträffat, vi arbetar på att lösa det!</p> <img style="width: 70px; height: 70px; margin-inline: auto; margin-top: -2rem;" src="svg-icons/broken-link-svgrepo-com.svg">'
+      break
     }
     return
   }
