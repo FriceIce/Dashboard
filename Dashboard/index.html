@@ -14,20 +14,27 @@
   <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
 
   <style>
-    #map{
-      width: 300px; 
-      height: 350px; 
+    [data-fullscreen="false"]{
+      width: 100%;
+      height: 100%;
       border-radius: 10px;
     }
+  
+    [data-fullscreen="true"]{
+      position: absolute;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 2;
+    }
+
+
     /* top-left component på kartan */
     .mapbox-directions-component{
       width: 200px;
       margin-left: -7px;
     }
     
-    .directions-control{
-      width: 200px;
-    }
   </style>
 
   <title>DashBoard</title>
@@ -40,7 +47,7 @@
     </div>
   </header>
   <main class="dashboard-layout">
-    <h1 id="dashboard-title">Isak Ice Dashboard</h1>
+    <h1 id="dashboard-title">Isaks Dashboard</h1>
     <div class="cards-layout">
       <div class="card" data-url>
         <div class="title">
@@ -60,7 +67,7 @@
         <box-icon name='menu-alt-left'></box-icon>
         <aside class="forecast-sidebar">
           <div class="forecast-title">
-            <box-icon style="width: 17px; height: 17px;" type='solid' name='location-plus'></box-icon>
+            <box-icon type='solid' name='location-plus'></box-icon>
             <h5 id="user-location"></h5>
           </div>
         </aside>
@@ -76,8 +83,9 @@
           </form>
         </div>
       </div>
-      <div class="card">
-        <div id='map'></div>
+      <div class="card third-card">
+        <div id='map' data-fullscreen="false"></div>
+        <button class="fullscreen-btn" style="background: transparent; border:none; width: 25px; position: absolute; bottom: 30px; cursor: pointer; left: 10px; z-index: 2;"><img style="width: 100%;" title="fullscreen" src="svg-icons/full-screen-display-button-1-svgrepo-com.svg" alt="fullscreen"></button>
       </div>
       <div class="card">
         <div class="headline">
@@ -85,10 +93,8 @@
           <p>Best Sellers</p>
           <p>Combined Print & E-Book Fiction</p>
         </div>
-        <div class="all-books">
-          
+        <div class="all-books">  
         </div>
-        
       </div>
     </div>
   </main>

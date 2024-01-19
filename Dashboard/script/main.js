@@ -1,45 +1,23 @@
-import axios, { all } from "axios";
 import { addLink, allURL, renderIcons, saveURL } from "./modules/add-url.js";
 import { getWeather, renderSidebarWeather, renderWeatherData, sidebarLocations} from "./modules/add-weather.js";
+import {resizeMap} from "./modules/mapbox.js";
 import dateAndTime from "./modules/date-time.js";
 import userLocation from "./modules/user-location.js";
-import globe from "./modules/mapbox.js";
 import newYorkTimesBestsellers from "./modules/new-york-times.js";
 
 //------------------USER LOCATION-----------------------
 userLocation(renderWeatherData, getWeather)
-// -----------------------------------------------------
 
-// ---------------------------------------The New York Times------------------------------
-newYorkTimesBestsellers()
-const allBooksEl = document.querySelector('.all-books'); 
-allBooksEl.addEventListener('click', (el) => {
-  const buyBtns = document.querySelectorAll('.buy-book-btn');
-  const purchaseCont = document.querySelectorAll('.purchase-cont')
-  const target = el.target; 
-  buyBtns.forEach((btn, index) => {
-   if(btn === target){
-    if(purchaseCont[index].dataset.purchaseCont === 'open'){
-      purchaseCont[index].dataset.purchaseCont = 'close'; 
-      return
-    }
-    purchaseCont[index].dataset.purchaseCont = 'open'; 
-   } else {
-    purchaseCont[index].dataset.purchaseCont = 'close'; 
-   }
-  })
-});
-
-//DATE AND TIME
+//------------------DATE AND TIME-----------------------
 dateAndTime();
 setInterval(() => {
   dateAndTime();
 }, 1000)
 
-// RENDER ALL ICONS
+//------------------RENDER ALL ICONS--------------------
 renderIcons(allURL)
 
-//ADD NEW URL
+//------------------ADD NEW URL-------------------------
 const addUrlEl = document.querySelector('#add-link-form'); 
 const inputUrl = addUrlEl.querySelector('input')
 addUrlEl.addEventListener('submit', (el) => {
@@ -50,7 +28,7 @@ addUrlEl.addEventListener('submit', (el) => {
   addLink(url)
 })
 
-//REMOVE URL
+//-------------------REMOVE URL--------------------------
 const addURLCard = document.querySelector('[data-url]'); 
 addURLCard.addEventListener('click', (el) => {
   const removeBtnsEl = document.querySelectorAll('.removeURLBtn'); 
@@ -64,7 +42,6 @@ addURLCard.addEventListener('click', (el) => {
     }
   })
 })
-
 /*
 ------------------------------------------------------------------------------- 
 |                                                                             |
@@ -90,22 +67,21 @@ weatherFormEl.addEventListener('submit', (el) => {
   getWeather(city);
 })
 
-// SIDEBAR
+//--------------------SIDEBAR---------------------------------
 const forecastCont = document.querySelector('[data-forecast-cont]')
 const sideBar = document.querySelector('.forecast-sidebar'); 
-const sideBarMenu = document.querySelector("[name='menu-alt-left']")
+const sideBarMenu = document.querySelector("[name='menu-alt-left']") //menu uppe till vänster
 
 forecastCont.addEventListener('click', (el) => {
   const target = el.target;
   const weatherLocation = document.querySelector('.sidebar-location'); 
-  const userLocationEL = document.querySelector('#user-location')
+  const userLocationEL = document.querySelector('#user-location') //
   if(target === sideBarMenu){
     // console.log('inne')
     sideBar.dataset.sidebar='open';
     return 
     
   } else if(target === userLocationEL){
-    console.log('true')
     userLocation(renderWeatherData, getWeather)
     
   }else if(weatherLocation !== null && target.tagName === 'P' ){
@@ -122,14 +98,32 @@ forecastCont.addEventListener('click', (el) => {
   sideBar.dataset.sidebar='close'
 })
 
-// console.log(sidebarLocations)
 if(sidebarLocations) {
   sidebarLocations.forEach(data => renderSidebarWeather(data))
 }
 
-//----------------------------------------MAPS------------------------------------------
-globe();
+//------------------------------MAPS------------------------------------------
+const fullscreenBtn = document.querySelector('.fullscreen-btn img'); 
+fullscreenBtn.addEventListener('click', () => {
+  resizeMap(fullscreenBtn)
+})
 
-
-
-
+// ------------------------The New York Times------------------------------
+newYorkTimesBestsellers()
+const allBooksEl = document.querySelector('.all-books'); 
+allBooksEl.addEventListener('click', (el) => {
+  const buyBtns = document.querySelectorAll('.buy-book-btn');
+  const purchaseCont = document.querySelectorAll('.purchase-cont')
+  const target = el.target; 
+  buyBtns.forEach((btn, index) => {
+   if(btn === target){
+    if(purchaseCont[index].dataset.purchaseCont === 'open'){
+      purchaseCont[index].dataset.purchaseCont = 'close'; 
+      return
+    }
+    purchaseCont[index].dataset.purchaseCont = 'open'; 
+   } else {
+    purchaseCont[index].dataset.purchaseCont = 'close'; 
+   }
+  })
+});
