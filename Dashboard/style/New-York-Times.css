@@ -27,7 +27,7 @@
   grid-template-rows: auto;
   gap: 2rem;
   align-self: flex-start;
-  /* padding-bottom: 10px; */
+  padding-bottom: 30px;
   width: 95%;
   overflow-y: auto;
 }
@@ -103,6 +103,16 @@
   z-index: -1;
 }
 
+/* This is for the last modal i NYC Times best seller. */
+[data-id="15"]{
+  top: -70px;
+}
+
+[data-id="15"]::before{
+  bottom: 0px;
+}
+/* --------------------------------------------------------- */
+
 [data-purchase-cont="open"]{
   opacity: 1;
   pointer-events: auto;
@@ -113,12 +123,14 @@
   text-decoration: none;
   white-space: nowrap;
   list-style: none; 
+  width: 127px;
   cursor: pointer;
 }
 
 
 .purchase-cont li:hover{
   text-decoration: underline;
+  font-weight: 600;
 }
 
 .article-info div:last-child button:hover{
