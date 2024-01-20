@@ -11,7 +11,6 @@
 
 body{
   position: relative;
-  background-image: url('https://images.unsplash.com/photo-1704913427603-6cb736d51f05?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -37,6 +36,7 @@ body{
 body::-webkit-scrollbar{
   display: none;
 }
+
 /* ................Time and Date.............. */
 header{
   grid-area: header;

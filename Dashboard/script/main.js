@@ -4,7 +4,7 @@ import {resizeMap} from "./modules/mapbox.js";
 import dateAndTime from "./modules/date-time.js";
 import userLocation from "./modules/user-location.js";
 import newYorkTimesBestsellers from "./modules/new-york-times.js";
-
+import getRandomBackgroundImage from "./modules/unsplash.js";
 //------------------USER LOCATION-----------------------
 userLocation(renderWeatherData, getWeather)
 
@@ -127,3 +127,8 @@ allBooksEl.addEventListener('click', (el) => {
    }
   })
 });
+
+// --------------------------Background Image---------------------------
+const footer = document.querySelector('.footer-layout img'); 
+footer.addEventListener('click', getRandomBackgroundImage)
+getRandomBackgroundImage()

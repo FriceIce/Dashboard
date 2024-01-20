@@ -24,7 +24,6 @@
   text-decoration: none;
   overflow: hidden;
   cursor: pointer;
-  /* width: fit-content; */
 }
 
 .item a:hover{
