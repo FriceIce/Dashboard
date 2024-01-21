@@ -5,14 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
   <link rel="stylesheet" href="style/style.css">
-  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-  <script type="module" src="script/main.js"></script>
-
   <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script><link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
-
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <script type="module" src="script/main.js"></script>
+  
   <style>
     [data-fullscreen="false"]{
       width: 100%;
@@ -28,16 +27,13 @@
       z-index: 2;
     }
 
-
     /* top-left component på kartan */
     .mapbox-directions-component{
       width: 200px;
       margin-left: -7px;
-    }
-    
+    }  
   </style>
-
-  <title>DashBoard</title>
+  <title>Dashboard</title>
 </head>
 <body>
   <header>
@@ -47,7 +43,7 @@
     </div>
   </header>
   <main class="dashboard-layout">
-    <h1 id="dashboard-title">Isaks Dashboard</h1>
+    <h1 id="dashboard-title"><span contenteditable="true">Isak</span>s Dashboard</h1>
     <div class="cards-layout">
       <div class="card" data-url>
         <div class="title">
@@ -55,7 +51,6 @@
         </div>
         <ul class="item-cont">
         </ul>
-        
         <div class="add-cont">
           <form class="card-form" id="add-link-form">
             <input placeholder="Example - google.com" type="text" name="link-input" id="link-input" class="card-input">
@@ -71,7 +66,6 @@
             <h5 id="user-location"></h5>
           </div>
         </aside>
-
         <div data-weather-cont>
         </div>
         <div class="add-cont">

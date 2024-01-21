@@ -2,7 +2,7 @@ import axios from "axios";
 
 export async function getWeather(location='Sverige'){
   console.log('Entering getWeather() function..')
-  const apiKey = import.meta.env.VITE_WEATHER_KEY;;
+  const apiKey = import.meta.env.VITE_WEATHER_KEY;
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`;
   
   try {
@@ -32,12 +32,6 @@ export async function getWeather(location='Sverige'){
     console.log(error)
     const {response: {status}} = error
     switch (status) {
-      case 400:
-        console.log('Status code', error)
-        break;
-      case 401:
-        console.log('Status code', error)
-        break;
       case 404: 
       const img = `<img style="height 60px; width: 60px; margin-top: 6rem" src="svg-icons/country-direction-location-map-navigation-pin-svgrepo-com.svg">`
       cardEl.innerHTML = img + '<p style="margin-bottom: 2rem;">404 City Not Found</p>'
@@ -93,7 +87,7 @@ export function renderWeatherData(data){
 }
 
 export const sidebarLocations = JSON.parse(localStorage.getItem('sidebarLocations')) || []; 
-// localStorage.removeItem('sidebarLocations')
+localStorage.removeItem('sidebarLocations')
 export function renderSidebarWeather(data){
   const sideBar = document.querySelector('.forecast-sidebar'); 
   const {

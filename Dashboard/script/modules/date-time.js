@@ -7,7 +7,7 @@ export default function dateAndTime(){
   const time = new Intl.DateTimeFormat('sv', {timeStyle: 'short'}).format(dateTime)
   const date = new Intl.DateTimeFormat('sv', {dateStyle: 'medium'}).format(dateTime)     
 
-  //Render time and date;
+  //Render time and date
   clockEl.innerText = `Kl ${time}`
   dateEl.innerText = date;
 }
