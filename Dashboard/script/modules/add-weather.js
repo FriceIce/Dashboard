@@ -1,9 +1,8 @@
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 
 export async function getWeather(location='Sverige'){
   console.log('Entering getWeather() function..')
   const apiKey = '691bd0077813775638e00b909e6b2157';
-  // const apiKeyFourDays = '1385a7fd85515a5e3e931c804079457e' Kolla upp denna senare. 
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`;
   
   try {
@@ -14,7 +13,7 @@ export async function getWeather(location='Sverige'){
   
     renderWeatherData(data); 
 
-    //Kollar ifall platsen redan finns i listan.
+    //Checks if location is already in the list.
     let matchingLocation = false; 
     sidebarLocations.forEach(location => {
       if(data.name === location.name){
@@ -54,7 +53,7 @@ export async function getWeather(location='Sverige'){
 
 export function renderWeatherData(data){
   const cardEl = document.querySelector('[data-weather-cont]'); 
-  // console.log(cardEl)
+
   const {
     name,
     main: {temp}, 
@@ -91,7 +90,6 @@ export function renderWeatherData(data){
     </div>
     `
   cardEl.innerHTML = html;
-  // console.log(sidebarLocations)
 }
 
 export const sidebarLocations = JSON.parse(localStorage.getItem('sidebarLocations')) || []; 

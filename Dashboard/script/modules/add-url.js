@@ -4,7 +4,6 @@ export const allURL = JSON.parse(localStorage.getItem('URL')) || [];
 const itemContEl = document.querySelector('.item-cont');
 export function addLink(url){
   let text = url.charAt(0).toUpperCase() + url.slice(1);
-    
   
   //Ersätter Https:// med en tom sträng
   if(text.includes('Https://')){

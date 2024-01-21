@@ -1,6 +1,3 @@
-/*  */
-// import userLocation from "./user-location";
-
 export function globe(position, zoom, id='map'){
   mapboxgl.accessToken = 'pk.eyJ1IjoiZnJpY2VpY2UiLCJhIjoiY2xyZXl4eW1rMGN4czJqbzB3OHkwcXBpcCJ9.noDS3FIuqbswTiHqeVIzdQ';
   const map = new mapboxgl.Map({
@@ -34,7 +31,7 @@ export function resizeMap(img){
     map.dataset.fullscreen = 'true';
     img.title = 'Normalt läge' 
     img.src="svg-icons/full-screen-button-7-svgrepo-com.svg"
-    globe([17.34, 60.12], 3) //Sveriges koordinater
+    globe([17.34, 60.12], 3) //Swedens coords
   } else {
     body.style.overflow = 'auto'
     cardLayout.insertBefore(card, cardLayout.lastElementChild);
@@ -42,7 +39,7 @@ export function resizeMap(img){
     map.dataset.fullscreen = 'false';
     img.title="Helskärmsläge"
     img.src="svg-icons/full-screen-display-button-1-svgrepo-com.svg"
-    card.scrollIntoView() //Scrollar fönstret till kortet. 
+    card.scrollIntoView() //Scrolling card element to view. 
     globe([17.34, 60.12], 2)
   }
 }

@@ -11,7 +11,6 @@ export default function userLocation(weatherFn, onError){
     try {
       const response = await axios(URL)
       const data = await response.data; 
-      // console.log('Fetch successful, data:', response)
 
       if(response.status !== 200)
         throw new Error(response.status);  

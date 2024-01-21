@@ -70,14 +70,13 @@ weatherFormEl.addEventListener('submit', (el) => {
 //--------------------SIDEBAR---------------------------------
 const forecastCont = document.querySelector('[data-forecast-cont]')
 const sideBar = document.querySelector('.forecast-sidebar'); 
-const sideBarMenu = document.querySelector("[name='menu-alt-left']") //menu uppe till vänster
+const sideBarMenu = document.querySelector("[name='menu-alt-left']") //menu upper-left
 
 forecastCont.addEventListener('click', (el) => {
   const target = el.target;
   const weatherLocation = document.querySelector('.sidebar-location'); 
-  const userLocationEL = document.querySelector('#user-location') //
+  const userLocationEL = document.querySelector('#user-location')
   if(target === sideBarMenu){
-    // console.log('inne')
     sideBar.dataset.sidebar='open';
     return 
     
