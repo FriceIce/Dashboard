@@ -32,6 +32,27 @@
   overflow-y: auto;
 }
 
+/* ------------------SCROLLBAR------------------- */
+.all-books::-webkit-scrollbar{
+  width: 7px;
+}
+
+.all-books::-webkit-scrollbar-track{
+  background: rgb(184, 184, 184);
+  border-radius: 5px;
+  margin-bottom: 4px;
+}
+
+.all-books::-webkit-scrollbar-thumb{
+  background: gray;
+  border-radius: 5px;
+  height: 30%;
+}
+
+.all-books::-webkit-scrollbar-thumb:hover{
+  background: rgb(68, 68, 68);
+}
+/* ------------------------------------------------- */
 .book-cont{
   padding: 0px 5px;
   display: flex;
@@ -42,7 +63,6 @@
 
 .img-cont{
   height: 93px;
-  /* border: 1px solid; */
   display: flex;
   gap: 0.5rem;
   padding: 0px 5px;
@@ -103,7 +123,7 @@
   z-index: -1;
 }
 
-/* This is for the last modal i NYC Times best seller. */
+/* This is for the last modal for NYC Times best seller. */
 [data-id="15"]{
   top: -70px;
 }
