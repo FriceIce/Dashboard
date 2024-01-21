@@ -2,7 +2,7 @@ import axios from "axios";
 
 export async function getWeather(location='Sverige'){
   console.log('Entering getWeather() function..')
-  const apiKey = '691bd0077813775638e00b909e6b2157';
+  const apiKey = import.meta.env.VITE_WEATHER_KEY;;
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`;
   
   try {

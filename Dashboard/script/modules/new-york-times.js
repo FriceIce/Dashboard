@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default async function newYorkTimesBestsellers(){
-  const APIkey = 'WjjAAwj83Q52TwwWqcRYNwxx2BU5uJk6'
+  const APIkey = import.meta.env.VITE_THE_NY_TIMES_BEST_SELLERS;
   const URL = `https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=${APIkey}`
   
   try {

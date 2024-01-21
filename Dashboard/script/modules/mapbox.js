@@ -1,5 +1,6 @@
+const accessToken = import.meta.env.VITE_MAPBOX_TOKEN
 export function globe(position, zoom, id='map'){
-  mapboxgl.accessToken = 'pk.eyJ1IjoiZnJpY2VpY2UiLCJhIjoiY2xyZXl4eW1rMGN4czJqbzB3OHkwcXBpcCJ9.noDS3FIuqbswTiHqeVIzdQ';
+  mapboxgl.accessToken = accessToken;
   const map = new mapboxgl.Map({
     container: id,
     style: 'mapbox://styles/mapbox/streets-v11',
@@ -10,7 +11,7 @@ export function globe(position, zoom, id='map'){
   
 
   const directions = new MapboxDirections({
-    accessToken: 'pk.eyJ1IjoiZnJpY2VpY2UiLCJhIjoiY2xyZXl4eW1rMGN4czJqbzB3OHkwcXBpcCJ9.noDS3FIuqbswTiHqeVIzdQ',
+    accessToken: import.meta.env.VITE_MAPBOX_TOKEN,
     unit: 'metric',
     profile: 'mapbox/driving'
   });

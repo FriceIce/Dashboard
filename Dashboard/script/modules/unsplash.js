@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default async function getRandomBackgroundImage(){
-  const token = '5SCRcJdnZ8ULKdavlthtwYTp1lU1U4HMDIq3xXuEp4Y'; 
+  const token = import.meta.env.VITE_UNSPLASH_API_KEY; 
   const url = `https://api.unsplash.com/photos/random?client_id=${token}`
   const body = document.body; 
   
