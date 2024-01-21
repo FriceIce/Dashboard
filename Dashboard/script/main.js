@@ -5,6 +5,7 @@ import dateAndTime from "./modules/date-time.js";
 import userLocation from "./modules/user-location.js";
 import newYorkTimesBestsellers from "./modules/new-york-times.js";
 import getRandomBackgroundImage from "./modules/unsplash.js";
+
 //------------------USER LOCATION-----------------------
 userLocation(renderWeatherData, getWeather)
 

@@ -13,7 +13,7 @@ export async function getWeather(location='Sverige'){
   
     renderWeatherData(data); 
 
-    //Checks if location is already in the list.
+    //Checks if location is already in the array.
     let matchingLocation = false; 
     sidebarLocations.forEach(location => {
       if(data.name === location.name){

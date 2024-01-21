@@ -5,14 +5,14 @@ const itemContEl = document.querySelector('.item-cont');
 export function addLink(url){
   let text = url.charAt(0).toUpperCase() + url.slice(1);
   
-  //Ersätter Https:// med en tom sträng
+  //replaces Https:// with an empty string
   if(text.includes('Https://')){
     text = text.replace('Https://', '')
     text = text.charAt(0).toUpperCase() + text.slice(1);
     console.log(text)
   }
 
-  //Icke valid input. 
+  //Not valid input. 
   if(!text.includes('.com')) 
     if(!text.includes('.se'))
       if(!text.includes('.dev'))
