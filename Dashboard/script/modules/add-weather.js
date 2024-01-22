@@ -87,7 +87,6 @@ export function renderWeatherData(data){
 }
 
 export const sidebarLocations = JSON.parse(localStorage.getItem('sidebarLocations')) || []; 
-// localStorage.removeItem('sidebarLocations')
 export function renderSidebarWeather(data){
   const sideBar = document.querySelector('.forecast-sidebar'); 
   const {

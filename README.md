@@ -14,12 +14,12 @@ Detta projekt är en interaktiv dashboard skapad med HTML, CSS, och JavaScript. 
 
 # Teknologier
 
-* HTML, 
-* CSS, 
-* JavaScript, 
-* Vite, 
-* Axios, 
-* dotenv.
+* HTML 
+* CSS 
+* JavaScript 
+* Vite 
+* Axios 
+* dotenv
 
 
 # Installation
@@ -39,13 +39,12 @@ Följ dessa steg:
   * Unsplash API - (https://unsplash.com/documentation#get-a-random-photo)
 
 # Reflektion
-Styrkor:
-<p>
+<b>Styrkor:</b>
+
   I projektet valde jag att inkludera moduler med tanke på deras flera fördelar. En av styrkorna med dessa moduler är deras kapacitet att strukturera koden genom att bryta ner den, vilket möjliggör återanvändning av samma kod över olika filer. Uppdatering av koden har varit effektivare under projektets gång, då varje modul är fördelad i separata JavaScript-filer med tydliga namn, vilket underlättar både navigeringen i programmet och sökandet efter buggar.
   Huvudfilen (main.js) importerar dessa moduler. Filen innehåller enbart eventhantering och nödvändiga moduler. Med andra ord möjliggör modulerna mindre kod i huvudfilen.
-</p>
 
-Brister: 
+<b>Brister:</b>
 
   Säkerheten i projektet har sina brister och jag har åtgärdat det som var möjligt med mina begränsade kunskaper. Den första säkerhetsrisken var att jag exponerade mina API-nycklar direkt i programkoden, vilket gör de lättillgänglig via DevTools under source-fliken. Det ökar risken för att någon får tag på mina API-nycklar och kan orsaka oönskade kostnader för betalda API-tjänster. För att gömma API-nycklarna laddade jag ner dotenv via npm, skapade en .env-fil i roten av dashboard-repot och importerade sedan specifika variabler från filen till utvalda JavaScript-variabler. Detta ökade säkerheten.
   Andra säkerhetsbristen är att det finns fortfarande risker med att utföra fetch-anrop i frontend (client-side). Det skulle vara mer önskvärt om anropet kunde utföras i backend för att ytterligare minska exponeringen och stärka säkerheten i helhet.

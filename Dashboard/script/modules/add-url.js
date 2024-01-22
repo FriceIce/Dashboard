@@ -1,5 +1,4 @@
 export const allURL = JSON.parse(localStorage.getItem('URL')) || []; 
-// localStorage.removeItem('URL')
 
 const itemContEl = document.querySelector('.item-cont');
 export function addLink(url){

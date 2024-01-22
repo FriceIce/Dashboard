@@ -6,7 +6,7 @@ export default async function getRandomBackgroundImage(){
   const body = document.body; 
   
   try {
-    // const response = await axios(url);
+    const response = await axios(url);
     console.log(response.data);
     body.style.backgroundImage = `url('${response.data.urls.regular}')`;
   } catch (error) {
