@@ -13,29 +13,29 @@ Detta projekt är en interaktiv dashboard skapad med HTML, CSS, och JavaScript. 
   4. Det fjärde kortet visar The New York Times bästsäljarlista för 'Hardcover Fictions' 15 bästa böcker.
 
 # Teknologier
-<ul>
-  <li>HTML</li> 
-  <li>CSS</li> 
-  <li>JavaScript</li> 
-  <li>Vite</li> 
-  <li>Axios</li> 
-  <li>dotenv</li>
-</ul>
+
+* HTML, 
+* CSS, 
+* JavaScript, 
+* Vite, 
+* Axios, 
+* dotenv.
+
 
 # Installation
 Följ dessa steg: 
  1. Klona projektet till din lokala miljö - git clone https://github.com/FriceIce/Dashboard.git
 
  2. Installera nödvändiga paket via npm:<br>
-  [1]. Vite - npm create vite@latest, (https://vitejs.dev/guide/)<br>
-  [2]. Axios - npm install axios, (https://axios-http.com/docs/intro)<br>
-  [3]. dotenv - npm install dotenv --save, (https://www.npmjs.com/package/dotenv?activeTab=readme) & (https://vitejs.dev/guide/env-and-mode)<br>
+  * [1]. Vite - npm create vite@latest, (https://vitejs.dev/guide/)<br>
+  * [2]. Axios - npm install axios, (https://axios-http.com/docs/intro)<br>
+  * [3]. dotenv - npm install dotenv --save, (https://www.npmjs.com/package/dotenv?activeTab=readme) & (https://vitejs.dev/guide/env-and-mode)<br>
 
 3. Skaffa API-nycklar/Tokens - Documentation: 
-  [1]. Openweathermap API - (https://openweathermap.org/api)<br>
-  [2]. Mapbox API - (https://www.youtube.com/watch?v=OySigNMXOZU)<br>
-  [3]. The New York Time API - (https://developer.nytimes.com/docs/books-product/1/overview)<br>
-  [4]. Unsplash API - (https://unsplash.com/documentation#get-a-random-photo)
+  * [1]. Openweathermap API - (https://openweathermap.org/api)<br>
+  * [2]. Mapbox API - (https://www.youtube.com/watch?v=OySigNMXOZU)<br>
+  * [3]. The New York Time API - (https://developer.nytimes.com/docs/books-product/1/overview)<br>
+  * [4]. Unsplash API - (https://unsplash.com/documentation#get-a-random-photo)
 
 # Reflektion
 <h2>Styrkor:<h2> 
