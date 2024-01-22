@@ -30,6 +30,7 @@
   padding-bottom: 30px;
   width: 95%;
   overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 /* ------------------SCROLLBAR------------------- */

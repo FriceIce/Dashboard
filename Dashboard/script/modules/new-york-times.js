@@ -16,17 +16,22 @@ export default async function newYorkTimesBestsellers(){
 }
 
 function renderTheNewYorksHTML(data){
+  const bestSellerDate = document.querySelector('.best-sellers-date');
+  const date = new Date(data.bestsellers_date); 
+  const SwedishDateFormat = new Intl.DateTimeFormat('sv', {dateStyle: 'long'}).format(date) 
+  bestSellerDate.innerHTML = SwedishDateFormat; 
+
   const allBooksEl = document.querySelector('.all-books'); 
   const html = data.books.map((value) => {
     return `
     <article class="book-cont">
-      <div class="img-cont">
-        <p>${value.rank}</p>
-        <img src="${value.book_image}" alt="book image">
+    <div class="img-cont">
+    <p>${value.rank}</p>
+    <img src="${value.book_image}" alt="book image">
       </div>
       <div class="article-info">
-        <ul class="purchase-cont" data-id="${value.rank}">
-          <a href="${value.buy_links[0].url}" target="_blank"><li>${value.buy_links[0].name}</li></a>
+      <ul class="purchase-cont" data-id="${value.rank}">
+      <a href="${value.buy_links[0].url}" target="_blank"><li>${value.buy_links[0].name}</li></a>
           <a href="${value.buy_links[1].url}" target="_blank"><li>${value.buy_links[1].name}</li></a>
           <a href="${value.buy_links[2].url}" target="_blank"><li>${value.buy_links[2].name}</li></a>
           <a href="${value.buy_links[3].url}" target="_blank"><li>${value.buy_links[3].name}</li></a>
