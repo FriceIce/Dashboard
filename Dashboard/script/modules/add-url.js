@@ -24,7 +24,7 @@ export function addLink(url){
   if(itemContEl.childElementCount < 4) 
     itemContEl.innerHTML += `
     <li class="item">
-      <img src="${icon}" style="width: 24px;">
+      <img src="${icon}" style="width: 26px; border-radius: 40%;">
       <a href="http://${text}" target="_Blank"><p>${text}</p></a>
       <img class="removeURLBtn" src="svg-icons/remove-ellipse-svgrepo-com.svg">
     </li>`
