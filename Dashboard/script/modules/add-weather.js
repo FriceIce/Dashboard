@@ -3,7 +3,7 @@ import axios from "axios";
 export async function getWeather(location='Sverige'){
   console.log('Entering getWeather() function..')
   const apiKey = import.meta.env.VITE_WEATHER_KEY;
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric&lang=sv`;
   
   try {
     console.log('fetching data...')
@@ -73,12 +73,12 @@ export function renderWeatherData(data){
       </div>
       <div class="description-cont">
         <div class="desc-card">
-          <img src="svg-icons/humidity-svgrepo-com.svg">
-          <p>Humidity: ${humidity}%</p>
+          <img src="svg-icons/humidity-svgrepo-com (1).svg">
+          <p>Fuktighet: ${humidity}%</p>
         </div>
         <div class="desc-card">
           <img src="svg-icons/wind-svgrepo-com.svg">
-          <p>Wind: ${Math.round(speed)} m/s</p>
+          <p>Vind: ${Math.round(speed)} m/s</p>
         </div>
       </div>
     </div>
@@ -87,7 +87,7 @@ export function renderWeatherData(data){
 }
 
 export const sidebarLocations = JSON.parse(localStorage.getItem('sidebarLocations')) || []; 
-localStorage.removeItem('sidebarLocations')
+// localStorage.removeItem('sidebarLocations')
 export function renderSidebarWeather(data){
   const sideBar = document.querySelector('.forecast-sidebar'); 
   const {
