@@ -13,28 +13,39 @@ Detta projekt är en interaktiv dashboard skapad med HTML, CSS, och JavaScript. 
   4. Det fjärde kortet visar The New York Times bästsäljarlista för 'Hardcover Fictions' 15 bästa böcker.
 
 # Teknologier
-HTML, CSS, JavaScript, Vite, Axios, dotenv.
+<ul>
+  <li>HTML</li> 
+  <li>CSS</li> 
+  <li>JavaScript</li> 
+  <li>Vite</li> 
+  <li>Axios</li> 
+  <li>dotenv</li>
+</ul>
 
 # Installation
 Följ dessa steg: 
  1. Klona projektet till din lokala miljö - git clone https://github.com/FriceIce/Dashboard.git
 
- 2. Installera nödvändiga paket via npm: 
-  [1]. Vite - npm create vite@latest, (https://vitejs.dev/guide/)
-  [2]. Axios - npm install axios, (https://axios-http.com/docs/intro)
-  [3]. dotenv - npm install dotenv --save, (https://www.npmjs.com/package/dotenv?activeTab=readme) & (https://vitejs.dev/guide/env-and-mode)
+ 2. Installera nödvändiga paket via npm:<br>
+  [1]. Vite - npm create vite@latest, (https://vitejs.dev/guide/)<br>
+  [2]. Axios - npm install axios, (https://axios-http.com/docs/intro)<br>
+  [3]. dotenv - npm install dotenv --save, (https://www.npmjs.com/package/dotenv?activeTab=readme) & (https://vitejs.dev/guide/env-and-mode)<br>
 
 3. Skaffa API-nycklar/Tokens - Documentation: 
-  [1]. Openweathermap API - (https://openweathermap.org/api)
-  [2]. Mapbox API - (https://www.youtube.com/watch?v=OySigNMXOZU)
-  [3]. The New York Time API - (https://developer.nytimes.com/docs/books-product/1/overview)
+  [1]. Openweathermap API - (https://openweathermap.org/api)<br>
+  [2]. Mapbox API - (https://www.youtube.com/watch?v=OySigNMXOZU)<br>
+  [3]. The New York Time API - (https://developer.nytimes.com/docs/books-product/1/overview)<br>
   [4]. Unsplash API - (https://unsplash.com/documentation#get-a-random-photo)
 
 # Reflektion
 <h2>Styrkor:<h2> 
-I projektet valde jag att inkludera moduler med tanke på deras flera fördelar. En av styrkorna med dessa moduler är deras kapacitet att strukturera koden genom att bryta ner den, vilket möjliggör återanvändning av samma kod över olika filer. Uppdatering av koden har varit effektivare under projektets gång, då varje modul är fördelad i separata JavaScript-filer med tydliga namn, vilket underlättar både navigeringen i programmet och sökandet efter buggar.
-Huvudfilen (main.js) importerar dessa moduler. Filen innehåller enbart eventhantering och nödvändiga moduler. Med andra ord möjliggör modulerna mindre kod i huvudfilen.
+<p>
+  I projektet valde jag att inkludera moduler med tanke på deras flera fördelar. En av styrkorna med dessa moduler är deras kapacitet att strukturera koden genom att bryta ner den, vilket möjliggör återanvändning av samma kod över olika filer. Uppdatering av koden har varit effektivare under projektets gång, då varje modul är fördelad i separata JavaScript-filer med tydliga namn, vilket underlättar både navigeringen i programmet och sökandet efter buggar.
+  Huvudfilen (main.js) importerar dessa moduler. Filen innehåller enbart eventhantering och nödvändiga moduler. Med andra ord möjliggör modulerna mindre kod i huvudfilen.
+</p>
 
 <h2>Brister:<h2>  
-Säkerheten i projektet har sina brister och jag har åtgärdat det som var möjligt med mina begränsade kunskaper. Den första säkerhetsrisken var att jag exponerade mina API-nycklar direkt i programkoden, vilket gör de lättillgänglig via DevTools under source-fliken. Det ökar risken för att någon får tag på mina API-nycklar och kan orsaka oönskade kostnader för betalda API-tjänster. För att gömma API-nycklarna laddade jag ner dotenv via npm, skapade en .env-fil i roten av dashboard-repot och importerade sedan specifika variabler från filen till utvalda JavaScript-variabler. Detta ökade säkerheten. 
-Andra säkerhetsbristen är att det finns fortfarande risker med att utföra fetch-anrop i frontend (client-side). Det skulle vara mer önskvärt om anropet kunde utföras i backend för att ytterligare minska exponeringen och stärka säkerheten i helhet.
+<p>
+  Säkerheten i projektet har sina brister och jag har åtgärdat det som var möjligt med mina begränsade kunskaper. Den första säkerhetsrisken var att jag exponerade mina API-nycklar direkt i programkoden, vilket gör de lättillgänglig via DevTools under source-fliken. Det ökar risken för att någon får tag på mina API-nycklar och kan orsaka oönskade kostnader för betalda API-tjänster. För att gömma API-nycklarna laddade jag ner dotenv via npm, skapade en .env-fil i roten av dashboard-repot och importerade sedan specifika variabler från filen till utvalda JavaScript-variabler. Detta ökade säkerheten.
+  Andra säkerhetsbristen är att det finns fortfarande risker med att utföra fetch-anrop i frontend (client-side). Det skulle vara mer önskvärt om anropet kunde utföras i backend för att ytterligare minska exponeringen och stärka säkerheten i helhet.
+</p>
