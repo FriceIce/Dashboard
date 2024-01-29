@@ -9,7 +9,6 @@ export function globe(position, zoom, id='map'){
   });
   map.addControl(new mapboxgl.NavigationControl());
   
-
   const directions = new MapboxDirections({
     accessToken: import.meta.env.VITE_MAPBOX_TOKEN,
     unit: 'metric',

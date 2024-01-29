@@ -126,7 +126,7 @@
 
 /* This is for the last modal for NYC Times best seller. */
 [data-id="15"]{
-  top: -70px;
+  top: -117%;
 }
 
 [data-id="15"]::before{
