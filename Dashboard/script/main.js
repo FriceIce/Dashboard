@@ -103,10 +103,11 @@ if(sidebarLocations) {
 }
 
 //------------------------------MAPS------------------------------------------
-const fullscreenBtn = document.querySelector('.fullscreen-btn img'); 
-fullscreenBtn.addEventListener('click', () => {
-  resizeMap(fullscreenBtn)
-})
+const fullScreenIcon = document.querySelector('.fullscreen-btn');
+fullScreenIcon.addEventListener('click', () => {
+  const img = fullScreenIcon.querySelector('img')
+  resizeMap(img)
+});
 
 // ------------------------The New York Times------------------------------
 newYorkTimesBestsellers()
