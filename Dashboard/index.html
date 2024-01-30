@@ -21,35 +21,10 @@
 
     /* top-left component på kartan */
     .mapbox-directions-component{
-      display: none;
       width: 200px;
       margin-left: -7px;
-    }  
-
-    .full-screen{
-      display: inline-block;
     }
-
-    #btn-spin {
-      font: bold 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-      background-color: #3386c0;
-      color: #fff;
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      z-index: 1;
-      border: none;
-      width: 200px;
-      margin-left: -100px;
-      display: block;
-      cursor: pointer;
-      padding: 10px 20px;
-      border-radius: 3px;
-    }
-
-    #btn-spin:hover {
-      background-color: #4ea0da;
-    }
+    
   </style>
   <title>Dashboard</title>
 </head>
@@ -97,8 +72,6 @@
       </div>
       <div class="card third-card">
         <div id='map'></div>
-        <button id="btn-spin">Pause rotation</button>
-        <button class="fullscreen-btn" style="background: white; padding: 5px; border:1px solid black; border-radius: 5px; width: 35px; height: 35px; position: absolute; bottom: 35px; cursor: pointer; left: 10px; z-index: 2;"><img style="width: 100%;" title="fullscreen" src="svg-icons/full-screen-display-button-1-svgrepo-com.svg" alt="fullscreen"></button>
       </div>
       <div class="card">
         <div class="headline">

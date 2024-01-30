@@ -5,7 +5,7 @@ export default async function newYorkTimesBestsellers(){
   const URL = `https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=${APIkey}`
   
   try {
-    // const response = await axios(URL)
+    const response = await axios(URL)
     const data = await response.data.results; 
     renderTheNewYorksHTML(data);
     console.log(data)

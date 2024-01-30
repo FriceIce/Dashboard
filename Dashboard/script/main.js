@@ -1,6 +1,6 @@
 import { addLink, allURL, renderIcons, saveURL } from "./modules/add-url.js";
 import { getWeather, renderSidebarWeather, renderWeatherData, sidebarLocations} from "./modules/add-weather.js";
-import {resizeMap} from "./modules/mapbox.js";
+// import {resizeMap} from "./modules/mapbox.js";
 import dateAndTime from "./modules/date-time.js";
 import userLocation from "./modules/user-location.js";
 import newYorkTimesBestsellers from "./modules/new-york-times.js";
@@ -103,11 +103,6 @@ if(sidebarLocations) {
 }
 
 //------------------------------MAPS------------------------------------------
-const fullScreenIcon = document.querySelector('.fullscreen-btn');
-fullScreenIcon.addEventListener('click', () => {
-  const img = fullScreenIcon.querySelector('img')
-  resizeMap(img)
-});
 
 // ------------------------The New York Times------------------------------
 newYorkTimesBestsellers()
