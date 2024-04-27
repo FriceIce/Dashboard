@@ -22,7 +22,7 @@ Detta projekt är en interaktiv dashboard skapad med HTML, CSS, och JavaScript. 
 * dotenv
 
 
-# Installation
+# Install
 Följ dessa steg: 
  1. Klona projektet till din lokala miljö: <br> 
  git clone https://github.com/FriceIce/Dashboard.git

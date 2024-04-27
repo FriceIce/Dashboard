@@ -11,3 +11,4 @@ export default function dateAndTime(){
   clockEl.innerText = `Kl ${time}`;
   dateEl.innerText = date;
 }
+

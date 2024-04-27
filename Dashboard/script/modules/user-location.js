@@ -30,7 +30,7 @@ export default function userLocation(weatherFn, onError){
 
   // ON ERROR, User denies location.
   const error = (err) => {
-    globe([20, 20], 0)
+    globe([20, 20], 0.7)
     const userLocation = document.querySelector('#user-location')
     userLocation.innerText = 'Din plats: Okänd'
     console.log(err)
